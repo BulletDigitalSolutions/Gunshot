@@ -20,13 +20,13 @@
         "laravel-doctrine/acl": "^1.0",
         "laravel-doctrine/extensions": "^1.0",
         "laravel-doctrine/migrations": "*",
-        "laravel-doctrine/orm": "^1.7",
+        "laravel-doctrine/orm": "^1.7|^2.1",
         "laravel/fortify": "*",
-        "laravel/pint": "^0.2.3",
         "webpatser/laravel-uuid": "^4.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
+        "laravel/pint": "^0.2.3",
         "phpunit/phpunit": "^9.0"
     },
     "autoload": {
