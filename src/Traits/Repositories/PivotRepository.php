@@ -363,6 +363,8 @@ trait PivotRepository
         foreach ($toAttachCollection as $child) {
             if (! $existing->contains($child)) {
                 $this->attach($attachingTo, $child, $pivotAttributes);
+            } else {
+                $this->updateExistingPivot($attachingTo, $child, $pivotAttributes);
             }
         }
 
