@@ -456,15 +456,7 @@ trait PivotRepository
         }
     }
 
-    /**
-     * @param $attachingTo
-     * @param $toAttach
-     * @param $column
-     * @return mixed
-     *
-     * @throws \Exception
-     */
-    public function syncPivot($attachingTo, $toAttach = [], $column = 'id')
+    public function syncPivot($attachingTo, $toAttach = [], $column = 'id', $pivotIdValue = 'id')
     {
         $existing = collect($this->findByEntity($attachingTo));
         $toAttachCollection = collect();
@@ -481,9 +473,9 @@ trait PivotRepository
 
         foreach ($toAttach as $item) {
             if ($attachingTo instanceof $this->parentClass) {
-                $child = app($this->childClass)->getRepository()->findOneBy([$column => $item]);
+                $child = app($this->childClass)->getRepository()->findOneBy([$column => $item[$pivotIdValue]]);
             } else {
-                $child = app($this->parentClass)->getRepository()->findOneBy([$column => $item]);
+                $child = app($this->parentClass)->getRepository()->findOneBy([$column => $item[$pivotIdValue]]);
             }
 
             if (! $existing->contains($child)) {
