@@ -9,6 +9,8 @@ use BaconQrCode\Renderer\RendererStyle\Fill;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
 use Carbon\Carbon;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Laravel\Fortify\Contracts\TwoFactorAuthenticationProvider;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\RecoveryCode;
@@ -19,17 +21,22 @@ trait TwoFactorAuthenticatable
      * @ORM\Column(type="text", nullable=true)
      * @Gedmo\Versioned
      */
+    #[ORM\Column(type: 'text', nullable: true)]
+    #[Gedmo\Versioned]
     protected $twoFactorSecret;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Gedmo\Versioned
      */
+    #[ORM\Column(type: 'text', nullable: true)]
+    #[Gedmo\Versioned]
     protected $twoFactorRecoveryCodes;
 
     /**
      * @ORM\Column(type="carbondatetime", nullable=true)
      */
+    #[ORM\Column(type: 'carbondatetime', nullable: true)]
     protected $twoFactorConfirmedAt;
 
     /**

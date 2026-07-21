@@ -14,6 +14,8 @@ trait Timestampable
      *
      * @var DateTime
      */
+    #[ORM\Column(name: 'created_at', type: 'datetime', nullable: true)]
+    #[Gedmo\Timestampable(on: 'create')]
     protected $createdAt;
 
     /**
@@ -22,6 +24,8 @@ trait Timestampable
      *
      * @var DateTime
      */
+    #[ORM\Column(name: 'updated_at', type: 'datetime', nullable: true)]
+    #[Gedmo\Timestampable(on: 'update')]
     protected $updatedAt;
 
     /**

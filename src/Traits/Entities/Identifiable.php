@@ -2,6 +2,7 @@
 
 namespace BulletDigitalSolutions\Gunshot\Traits\Entities;
 
+use Doctrine\ORM\Mapping as ORM;
 use Webpatser\Uuid\Uuid;
 
 trait Identifiable
@@ -9,6 +10,7 @@ trait Identifiable
     /**
      * @ORM\Column(type="string", length=36, unique=true)
      */
+    #[ORM\Column(type: 'string', length: 36, unique: true)]
     protected $uuid;
 
     /**
@@ -32,6 +34,7 @@ trait Identifiable
      *
      * @throws \Exception
      */
+    #[ORM\PrePersist]
     public function assignUuid()
     {
         $this->setUuid(Uuid::generate()->string);
