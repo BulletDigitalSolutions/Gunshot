@@ -83,7 +83,7 @@ trait TwoFactorAuthenticatable
      * @param  Carbon|null  $twoFactorConfirmedAt
      * @return void
      */
-    public function setTwoFactorConfirmedAt(Carbon $twoFactorConfirmedAt = null): void
+    public function setTwoFactorConfirmedAt(?Carbon $twoFactorConfirmedAt = null): void
     {
         $this->twoFactorConfirmedAt = $twoFactorConfirmedAt;
     }
